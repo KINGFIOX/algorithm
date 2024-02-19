@@ -20,7 +20,7 @@ public:
 class Solution {
 public:
     /**
-     * @brief 递归
+     * @brief 递归创建 父结点列表
      *
      * @param cur
      * @param parents

@@ -15,7 +15,7 @@ public:
         int R = 0;
         bool* usedR = new bool[N];
         while (L < N && R < N) {
-            if (usedR[L]) {
+            if (usedR[L]) { // 如果 被 R 标记了使用过了，那么 L 就跳过
                 L++;
             } else if (L >= R) {
                 R++; // 不能和自己 打
