@@ -21,8 +21,8 @@ bool test(int len = 100, int max = 1000, int testTimes = 1000, int AddUpdateTime
     for (int i = 0; i < testTimes; i++) {
         std::vector<int> origin = genRandArr(len, max);
         int size = origin.size();
-        SegmentTree* s = new SegmentTree(origin);
-        Right* r = new Right(origin);
+        SegmentTree s(origin);
+        Right r(origin);
         for (int j = 0; j < AddUpdateTimes; j++) {
             int L = 0;
             int R = -1;
@@ -33,11 +33,11 @@ bool test(int len = 100, int max = 1000, int testTimes = 1000, int AddUpdateTime
             int C = random() % max;
             int action = random() % 2;
             if (action) {
-                s->add(L, R, C);
-                r->add(L, R, C);
+                s.add(L, R, C);
+                r.add(L, R, C);
             } else {
-                s->update(L, R, C);
-                r->update(L, R, C);
+                s.update(L, R, C);
+                r.update(L, R, C);
             }
         }
 
@@ -51,8 +51,8 @@ bool test(int len = 100, int max = 1000, int testTimes = 1000, int AddUpdateTime
                 L = random() % size;
                 R = random() % size;
             }
-            long res1 = s->query(L, R);
-            long res2 = s->query(L, R);
+            long res1 = s.query(L, R);
+            long res2 = s.query(L, R);
             if (res1 != res2) {
                 e++;
             }
