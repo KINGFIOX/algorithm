@@ -2,6 +2,8 @@
 
 ## 生成指南
 
+### 内存泄露
+
 左程云老师用的是 java，但是我自己主要用的是 C++，
 C++ 需要手动管理内存，那么在 fedora 下，如何检测内存是否泄露呢？
 
@@ -44,3 +46,10 @@ Direct leak of 40 byte(s) in 1 object(s) allocated from:
 SUMMARY: AddressSanitizer: 520 byte(s) leaked in 13 allocation(s).
 [parallels@fedora day2]$
 ```
+
+### 二维数组
+
+个人想法，模板函数的 array
+
+或者是：`std::span<std::array<int, 2>>`这个就表示 `N * 2` 的矩阵，
+这个与 传参的时候`int arr[][2]`类似
